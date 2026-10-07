@@ -1,6 +1,6 @@
 from django.db import models
 
-# 
+# Student Class
 class Student(models.Model):
     MAJOR = (
         ("CSCI-BS", "BS in Computer Science"),

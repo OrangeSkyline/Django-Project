@@ -18,3 +18,13 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+class Portfolio(models.Model):
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    contact_email = models.EmailField()
+    is_active = models.BooleanField(default=True)
+    about = models.TextField(blank=True)
+    def __str__(self):
+        return f"{self.student.name}'s Portfolio: {self.title}"
+    

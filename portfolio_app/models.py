@@ -1,6 +1,6 @@
 from django.db import models
 
-# Student Class
+# Student Class.
 class Student(models.Model):
     MAJOR = (
         ("CSCI-BS", "BS in Computer Science"),
@@ -12,9 +12,30 @@ class Student(models.Model):
         ("DASE-BS", "BS in Data Analytics and Systems Engineering"),
     )
 
-    name = models.CharField(max_length=30)
-    email = models.EmailField("Enter your MSU Email here.")
-    major = models.CharField(max_length=40, choices=MAJOR, blank=True)
+    name = models.CharField("First & Last Name", max_length=60)
+    email = models.EmailField("MSU Email")
+    major = models.CharField(max_length=60, choices=MAJOR, blank=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
+
+# Portfolio Class.
+class Portfolio(models.Model):
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    contact_email = models.EmailField()
+    is_active = models.BooleanField(default=True)
+    about = models.TextField(blank=True)
+    
+    def __str__(self):
+        return f"{self.student.name}'s Portfolio: {self.title}"
+
+# Project Class.
+class Project(models.Model):
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    description = models.TextField(blank=True)
+    
+    def __str__(self):
+        return f"{self.title} - {self.portfolio.student.name}'s Project"
+    

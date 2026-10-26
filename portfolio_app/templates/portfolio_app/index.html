@@ -10,7 +10,7 @@
 
 <ul>
     {% for portfolio in active_portfolios %}
-        <li>{{portfolio.student.name}} - {{portfolio.title}}</li>
+        <li>{{portfolio.student.name}}: {{portfolio.title}}</li>
     {% empty %}
         <li>No active student portfolios available.</li>
     {% endfor %}

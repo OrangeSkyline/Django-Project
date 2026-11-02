@@ -1,21 +1,7 @@
-{% extends "portfolio_app/base-template.html" %}
+{% extends "portfolio_app/base_template.html" %}
 
 {%block content%}
 
-<a href="{% url 'index' %}">Home</a>
-
-<a href="{% url 'admin' %}">Admin Login</a>
-
-<a href="{% url 'student_list' %}">Students</a>
-
-<h2>Active Student Portfolio's</h2>
-
-<ul>
-    {% for portfolio in active_portfolios %}
-        <li>{{portfolio.student.name}}: {{portfolio.title}}</li>
-    {% empty %}
-        <li>No active student portfolios available.</li>
-    {% endfor %}
-</ul>
+<h2>Welcome to the Main Page!(it works)</h2>
 
 {% endblock %}

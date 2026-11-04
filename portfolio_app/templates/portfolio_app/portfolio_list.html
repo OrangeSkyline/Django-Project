@@ -6,7 +6,7 @@
 
 <ul>
     {% for portfolio in active_portfolios %}
-        <li>{{portfolio.student.name}}: {{portfolio.title}}</li>
+        <li><a href="{% url 'portfolio_detail' portfolio.id %}">{{portfolio.student.name}}: {{portfolio.title}}</a></li>
     {% empty %}
         <li>No active student portfolios available.</li>
     {% endfor %}

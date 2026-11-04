@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Portfolio, Student
 
 
@@ -11,6 +11,7 @@ def index(request):
         request,
         "portfolio_app/index.html"
     )
+
 def portfolio(request):
     # Retrieve the active portfolios from the database
     active_portfolios = Portfolio.objects.filter(
@@ -19,12 +20,24 @@ def portfolio(request):
     
     return render(
         request,
-        "portfolio_app/portfolios.html",
+        "portfolio_app/portfolio_list.html",
         {"active_portfolios": active_portfolios}
     )
 
-# CBV for Students
+# CBV for All Students
 class StudentListView(ListView):
     model = Student
     template_name = "portfolio_app/student_list.html"
     context_object_name = "students"
+    
+# CBV for One Student
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = "portfolio_app/student_detail.html"
+    context_object_name = "student"
+    
+# CBV for One Portfolio
+class PortfolioDetailView(DetailView):
+    model = Portfolio
+    template_name = "portfolio_app/portfolio_detail.html"
+    context_object_name = "portfolio"

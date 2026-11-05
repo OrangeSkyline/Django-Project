@@ -37,5 +37,5 @@ class Project(models.Model):
     description = models.TextField(blank=True)
     
     def __str__(self):
-        return f"{self.title}: {self.portfolio.student.name}'s Project"
+        return f"{self.title}"
     

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Portfolio, Student
+from .models import Portfolio, Project, Student
 
 
 # Create your views here.
@@ -41,3 +41,8 @@ class PortfolioDetailView(DetailView):
     model = Portfolio
     template_name = "portfolio_app/portfolio_detail.html"
     context_object_name = "portfolio"
+    
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = "portfolio_app/project_detail.html"
+    context_object_name = "project"

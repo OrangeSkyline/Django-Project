@@ -6,6 +6,15 @@
 
 <p><strong>Contact Email:</strong> {{portfolio.contact_email}}</p>
 <p><strong>About:</strong> {{portfolio.about}}</p>
-<p><strong>Projects:</strong> {{portfolio.project.title}}</p>
+<p>
+    <strong>Projects:</strong> 
+    {% for project in portfolio.project_set.all %}
+        <a href="{% url 'project_detail' project.pk %}">{{ project.title }}</a>
+        {% if not forloop.last %}, {% endif %}
+    {% empty %}
+        No projects available.
+    {% endfor %}
+</p>
+<p><strong>Status:</strong> {{portfolio.is_active|yesno:"Active,Inactive"}}</p>
 
 {% endblock %}

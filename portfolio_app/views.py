@@ -41,7 +41,8 @@ class PortfolioDetailView(DetailView):
     model = Portfolio
     template_name = "portfolio_app/portfolio_detail.html"
     context_object_name = "portfolio"
-    
+   
+# CBV for One Project    
 class ProjectDetailView(DetailView):
     model = Project
     template_name = "portfolio_app/project_detail.html"

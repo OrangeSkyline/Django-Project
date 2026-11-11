@@ -3,6 +3,7 @@
 {% block content%}
 
 <h2>Students</h2>
+<a href="{% url 'student_create' %}">Create a New Student</a>
 
 <ul>
     {% for student in students %}
@@ -11,7 +12,5 @@
         <li>No students found.</li>
     {% endfor %}
 </ul>
-
-<a href="{% url 'student_create' %}">Create a New Student</a>
 
 {% endblock %}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Django Portfolio Site</h1>
+
+      <a href="{% url 'portfolio_list' %}">Home</a>
+      <a href="{% url 'student_list' %}">Students</a>
+      <a href="{% url 'admin' %}">Admin Login</a>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>

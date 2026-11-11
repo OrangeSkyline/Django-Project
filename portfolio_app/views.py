@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Portfolio, Project, Student
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -47,3 +48,25 @@ class ProjectDetailView(DetailView):
     model = Project
     template_name = "portfolio_app/project_detail.html"
     context_object_name = "project"
+
+# CBV for Creating a Student
+class StudentCreateView(CreateView):
+    model = Student
+    fields = ['name','email','major']
+    template_name = "portfolio_app/student_form_create.html"
+    success_url = reverse_lazy('student_list')
+
+# CBV for Updating a Student
+class StudentUpdateView(UpdateView):
+    model = Student
+    fields = ['name','email','major']
+    template_name = "portfolio_app/student_form_update.html"
+
+    def get_success_url(self):
+        return reverse_lazy('student_detail', kwargs={'pk': self.object.pk})
+
+# CBV for Deleting a Student
+class StudentDeleteView(DeleteView):
+    model = Student
+    template_name = "portfolio_app/student_form_delete.html"
+    success_url = reverse_lazy('student_list')

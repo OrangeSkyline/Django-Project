@@ -7,7 +7,7 @@
 <p><strong>Email:</strong> {{student.email}}</p>
 <p><strong>Major:</strong> {{student.get_major_display}}</p>
 
-<a href="{% url 'student_update' student.pk %}" class="btn btn-primary">Update Student</a>
-<a href="{% url 'student_delete' student.pk %}" class="btn btn-danger">Delete Student</a>
+<button type="button" class="btn btn-primary" onclick="location.href='{% url 'student_update' student.pk %}'">Update Student</button>
+<button type="button" class="btn btn-danger" onclick="location.href='{% url 'student_delete' student.pk %}'">Delete Student</button>
 
 {% endblock %}

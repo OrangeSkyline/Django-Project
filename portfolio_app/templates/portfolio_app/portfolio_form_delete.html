@@ -1,0 +1,14 @@
+{% extends 'portfolio_app/base_template.html' %}
+
+{% block content %}
+
+<p>Are you sure you want to permanently delete {{portfolio.title}}?</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'portfolio_list' %}'">Cancel</button>
+</form>
+
+{% endblock %}

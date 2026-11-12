@@ -16,4 +16,7 @@
     {% endfor %}
 </p>
 
+<button type="button" onclick="location.href='{% url 'portfolio_update' portfolio.pk %}'">Update Portfolio</button>
+<button type="button" onclick="location.href='{% url 'portfolio_delete' portfolio.pk %}'">Delete Portfolio</button>
+
 {% endblock %}

@@ -4,6 +4,8 @@
 
 <h2>Active Student Portfolio's</h2>
 
+<button type="button" onclick="location.href='{% url 'portfolio_create' %}'">Create Portfolio</button>
+
 <ul>
     {% for portfolio in active_portfolios %}
         <li><a href="{% url 'portfolio_detail' portfolio.id %}">{{portfolio.student.name}}: {{portfolio.title}}</a></li>

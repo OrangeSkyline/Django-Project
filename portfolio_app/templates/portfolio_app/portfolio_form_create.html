@@ -1,0 +1,13 @@
+{% extends 'portfolio_app/base_template.html' %}
+
+{% block content %}
+
+<h2>Create A Portfolio</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Portfolio</button>
+</form>
+
+{% endblock %}

@@ -3,7 +3,7 @@
 {% block content%}
 
 <h2>Students</h2>
-<a href="{% url 'student_create' %}">Create a New Student</a>
+<button type="button" onclick="location.href='{% url 'student_create' %}'">Create a New Student</button>
 
 <ul>
     {% for student in students %}

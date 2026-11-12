@@ -10,6 +10,9 @@ urlpatterns = [
     path('students/<int:pk>/update/', views.StudentUpdateView.as_view(), name='student_update'),
     path('students/<int:pk>/delete/', views.StudentDeleteView.as_view(), name='student_delete'),
     path("portfolios/<int:pk>/", views.PortfolioDetailView.as_view(), name="portfolio_detail"),
+    path('portfolios/create/', views.PortfolioCreateView.as_view(), name='portfolio_create'),
+    path('portfolios/<int:pk>/update/', views.PortfolioUpdateView.as_view(), name='portfolio_update'),
+    path('portfolios/<int:pk>/delete/', views.PortfolioDeleteView.as_view(), name='portfolio_delete'),
     path("projects/<int:pk>/", views.ProjectDetailView.as_view(), name="project_detail"),
     path("admin/", views.index, name="admin"),
     

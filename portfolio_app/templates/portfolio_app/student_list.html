@@ -5,9 +5,9 @@
 
 <h2 class="mt-2 fw-normal">Students:</h2>
 
-<ul>
+<ul class="p-0" style="list-style-type: none;">
     {% for student in students %}
-        <li><a href="{% url 'student_detail' student.pk %}">{{student.name}}</a></li>
+        <li class="bg-primary" style="padding: 4px 8px; width: auto; max-width: 300px;"><a style="text-decoration: none; color: white;" href="{% url 'student_detail' student.pk %}">{{student.name}}</a></li>
     {% empty %}
         <li>No students found.</li>
     {% endfor %}

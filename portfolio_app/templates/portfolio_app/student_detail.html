@@ -9,9 +9,9 @@
 <p><strong>Major:</strong> {{student.get_major_display}}</p>
 
 {% url 'student_update' student.pk as student_update %}
-{% bootstrap_button button_type="link" content="Edit Student" button_class="btn btn-primary" href=student_update %}
+{% bootstrap_button button_type="link" button_class="btn btn-info" content="Edit Student" href=student_update %}
 {% url 'student_delete' student.pk as student_delete %}
-{% bootstrap_button button_type="button" content="Delete Student" button_class="btn btn-danger" data_bs_toggle="modal" data_bs_target="#student_delete_modal" %}
+{% bootstrap_button button_type="button" button_class="btn btn-danger" content="Delete Student" data_bs_toggle="modal" data_bs_target="#student_delete_modal" %}
     <div class="modal" id="student_delete_modal">
         <div class="modal-dialog">
             <div class="modal-content" style="background-color: #353535; color: white;">

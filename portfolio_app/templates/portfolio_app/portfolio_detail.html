@@ -18,9 +18,9 @@
 </p>
 
 {% url 'portfolio_update' portfolio.pk as portfolio_update %}
-{% bootstrap_button button_type="link" content="Edit Portfolio" href=portfolio_update %}
+{% bootstrap_button button_type="link" button_class="btn btn-info" content="Edit Portfolio" href=portfolio_update %}
 {% url 'portfolio_delete' portfolio.pk as portfolio_delete %}
-{% bootstrap_button button_type="button" content="Delete Portfolio" button_class="btn btn-danger" data_bs_toggle="modal" data_bs_target="#portfolio_delete_modal" %}
+{% bootstrap_button button_type="button" button_class="btn btn-danger" content="Delete Portfolio" data_bs_toggle="modal" data_bs_target="#portfolio_delete_modal" %}
     <div class="modal" id="portfolio_delete_modal">
         <div class="modal-dialog">
             <div class="modal-content" style="background-color: #353535; color: white;">

@@ -1,10 +1,11 @@
 {% extends "portfolio_app/base_template.html" %}
+{% load django_bootstrap5 %}
 
 {%block content%}
 
-<h2>{{portfolio.student.name}}: {{portfolio.title}}</h2>
+<h2 class="fw-normal mt-3">{{portfolio.student.name}}: {{portfolio.title}}</h2>
 
-<p><strong>Status:</strong> {{portfolio.is_active|yesno:"Active,Inactive"}}</p>
+<p class="mt-3"><strong>Status:</strong> {{portfolio.is_active|yesno:"Active,Inactive"}}</p>
 <p><strong>Contact Email:</strong> {{portfolio.contact_email}}</p>
 <p><strong>About:</strong> {{portfolio.about}}</p>
 <p><strong>Projects:</strong> 
@@ -16,7 +17,15 @@
     {% endfor %}
 </p>
 
-<button type="button" onclick="location.href='{% url 'portfolio_update' portfolio.pk %}'">Update Portfolio</button>
-<button type="button" onclick="location.href='{% url 'portfolio_delete' portfolio.pk %}'">Delete Portfolio</button>
-
+{% url 'portfolio_update' portfolio.pk as portfolio_update %}
+{% bootstrap_button button_type="link" content="Edit Portfolio" href=portfolio_update %}
+{% url 'portfolio_delete' portfolio.pk as portfolio_delete %}
+{% bootstrap_button button_type="button" content="Delete Portfolio" button_class="btn btn-danger" data_bs_toggle="modal" data_bs_target="#portfolio_delete_modal" %}
+    <div class="modal" id="portfolio_delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #353535; color: white;">
+            {% include "portfolio_app/portfolio_form_delete.html" %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

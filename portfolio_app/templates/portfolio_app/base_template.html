@@ -1,22 +1,31 @@
-
+{% load django_bootstrap5 %}
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio App</title>
-
+    <title>Student Portfolio's</title>
+    {% bootstrap_css %}
   </head>
-  <body>
+  <body class="container-fluid pt-2" style="background-color: #353535; color: white;">
     <header>
+      <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="">
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item">
+              <a class="nav-link active btn btn-primary" href="{% url 'portfolio_list' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active btn btn-primary " href="{% url 'student_list' %}">Students</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <h1>Django Portfolio Site</h1>
-
-      <a href="{% url 'portfolio_list' %}">Home</a>
-      <a href="{% url 'student_list' %}">Students</a>
     </header>
 
     <main>{% block content %} {% endblock %}</main>
-
+    {% bootstrap_javascript %}
   </body>
 </html>

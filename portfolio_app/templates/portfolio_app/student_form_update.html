@@ -1,14 +1,16 @@
 {% extends 'portfolio_app/base_template.html' %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 
-<h2>Update Student Information</h2>
+<h2 class="fw-normal mt-3">Edit Student</h2>
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update Student</button>
-    <button type="button" onclick="location.href='{% url 'student_list' %}'">Cancel</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="link" content="Save Student" button_class="btn btn-info" href=portfolio_update %}
+    {% url 'portfolio_delete' portfolio.pk as portfolio_delete %}
+    {% bootstrap_button button_type="link" content="Cancel" button_class="btn btn-danger" href=portfolio_delete %}
 </form>
 
 {% endblock %}

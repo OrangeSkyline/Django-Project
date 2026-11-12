@@ -1,9 +1,9 @@
 {% extends "portfolio_app/base_template.html" %}
+{% load django_bootstrap5 %}
 
 {% block content%}
 
-<h2>Students</h2>
-<button type="button" onclick="location.href='{% url 'student_create' %}'">Create a New Student</button>
+<h2 class="mt-2 fw-normal">Students:</h2>
 
 <ul>
     {% for student in students %}
@@ -13,4 +13,6 @@
     {% endfor %}
 </ul>
 
+{% url 'student_create' as student_create %}
+{% bootstrap_button button_type="link" button_class="btn btn-success" content="Create a New Student" href=student_create %}
 {% endblock %}

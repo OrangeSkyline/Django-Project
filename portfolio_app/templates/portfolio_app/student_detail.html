@@ -1,4 +1,5 @@
 {% extends "portfolio_app/base_template.html" %}
+{% load django_bootstrap5 %}
 
 {% block content%}
 
@@ -7,7 +8,15 @@
 <p><strong>Email:</strong> {{student.email}}</p>
 <p><strong>Major:</strong> {{student.get_major_display}}</p>
 
-<button type="button" class="btn btn-primary" onclick="location.href='{% url 'student_update' student.pk %}'">Update Student</button>
-<button type="button" class="btn btn-danger" onclick="location.href='{% url 'student_delete' student.pk %}'">Delete Student</button>
-
+{% url 'student_update' student.pk as student_update %}
+{% bootstrap_button button_type="link" content="Edit Student" button_class="btn btn-primary" href=student_update %}
+{% url 'student_delete' student.pk as student_delete %}
+{% bootstrap_button button_type="button" content="Delete Student" button_class="btn btn-danger" data_bs_toggle="modal" data_bs_target="#student_delete_modal" %}
+    <div class="modal" id="student_delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #353535; color: white;">
+            {% include "portfolio_app/student_form_delete.html" %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

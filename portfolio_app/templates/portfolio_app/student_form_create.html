@@ -1,13 +1,16 @@
 {% extends 'portfolio_app/base_template.html' %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 
-<h2>Create A Student</h2>
+<h2 class="fw-normal pt-2">Create A Student</h2>
 
-<form method="post">
+<form method="post" class="pt-2">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Student</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Create Student" button_class="btn btn-success" %}
+    {% url 'student_list' as student_list %}
+    {% bootstrap_button button_type="link" content="Cancel" button_class="btn btn-danger" href=student_list %}
 </form>
 
 {% endblock %}

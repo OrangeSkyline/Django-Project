@@ -8,9 +8,9 @@
     <title>Student Portfolio's</title>
     {% bootstrap_css %}
   </head>
-  <body class="container-fluid pt-1 mb-2" style="background-color: #353535; color: white;">
+  <body style="background-color: #353535; color: white;">
     <header>
-      <nav class="navbar navbar-expand-sm navbar-dark">
+      <nav class="navbar navbar-expand-sm navbar-dark mb-0" style="background-color: black; display: flex; justify-content: left; align-items: center; padding: 8px 8px 8px 8px;">
         <div class="">
           <ul class="navbar-nav gap-2">
             <li class="nav-item">
@@ -22,10 +22,9 @@
           </ul>
         </div>
       </nav>
-      <a href="https://github.com/OrangeSkyline/Django-Project" data-bs-toggle="tooltip" data-bs-placement="right" title="To the GitHub Repository!" style="font-size: 44px; text-decoration: none; color: orange; font-weight: bold;" target="blank_">Django Portfolio Site</a>
+      <a href="https://github.com/OrangeSkyline/Django-Project" data-bs-toggle="tooltip" data-bs-placement="right" title="View the GitHub Repository." class="container-fluid mb-2"style="font-size: 44px; text-decoration: none; color: orange; font-weight: bold;" target="blank_">Django Portfolio Site</a>
     </header>
-
-    <main>{% block content %} {% endblock %}</main>
+    <main class="container-fluid mb-2">{% block content %} {% endblock %}</main>
     {% bootstrap_javascript %}
   </body>
 </html>

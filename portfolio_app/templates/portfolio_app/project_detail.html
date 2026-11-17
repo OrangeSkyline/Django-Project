@@ -3,9 +3,8 @@
 
 {%block content%}
 
-<h2>{{project.title}}</h2>
-
-<p><strong>Description:</strong> {{project.description}}</p>
+<h2 class="fw-normal mt-2">{{project.title}}</h2>
+<p class="mt-3"><strong>Description:</strong> {{project.description}}</p>
 
 {% url 'project_update' project.pk as project_update %}
 {% bootstrap_button button_type="link" button_class="btn btn-info" content="Edit Project" href=project_update %}

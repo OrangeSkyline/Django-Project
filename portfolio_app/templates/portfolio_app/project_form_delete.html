@@ -4,7 +4,7 @@
         <h4 class="modal-title">Confirm Deletion</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
     </div>
-        <form method="post" action="{% url 'portfolio_delete' portfolio.pk %}">  
+        <form method="post" action="{% url 'project_delete' project.pk %}">  
             <div class="modal-body">
                 {% csrf_token %}
                 <p>Are you sure you want to delete {{project.title}}? This action cannot be undone.</p>

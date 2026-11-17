@@ -62,6 +62,13 @@ class PortfolioCreateView(CreateView):
     fields = ['student','title','about','is_active']
     template_name = "portfolio_app/portfolio_form_create.html"
     success_url = reverse_lazy('portfolio_list')
+    
+# CBV for Updating a Project
+class ProjectCreateView(CreateView):
+    model = Project
+    fields = ['title','description',]
+    template_name = "portfolio_app/project_form_create.html"
+    success_url = reverse_lazy('portfolio_list')
 
 # CBV for Updating a Student
 class StudentUpdateView(UpdateView):
@@ -80,6 +87,14 @@ class PortfolioUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('portfolio_detail', kwargs={'pk': self.object.pk})
+    
+# CBV for Updating a Project
+class ProjectUpdateView(UpdateView):
+    model = Project
+    fields = ['title','description',]
+    template_name = "portfolio_app/project_form_update.html"
+    success_url = reverse_lazy('portfolio_list')
+    
 
 # CBV for Deleting a Student
 class StudentDeleteView(DeleteView):
@@ -91,4 +106,10 @@ class StudentDeleteView(DeleteView):
 class PortfolioDeleteView(DeleteView):
     model = Portfolio
     template_name = "portfolio_app/portfolio_form_delete.html"
+    success_url = reverse_lazy('portfolio_list')
+    
+# CBV for Deleting a Project
+class ProjectDeleteView(DeleteView):
+    model = Project
+    template_name = "portfolio_app/project_form_delete.html"
     success_url = reverse_lazy('portfolio_list')

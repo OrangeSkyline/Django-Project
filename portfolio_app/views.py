@@ -66,7 +66,7 @@ class PortfolioCreateView(CreateView):
 # CBV for Updating a Project
 class ProjectCreateView(CreateView):
     model = Project
-    fields = ['title','description',]
+    fields = ['portfolio','title','description',]
     template_name = "portfolio_app/project_form_create.html"
     success_url = reverse_lazy('portfolio_list')
 

@@ -8,7 +8,7 @@
 <form method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% bootstrap_button button_type="submit" button_class="btn btn-info" content="Save Portfolio"%}
+    {% bootstrap_button button_type="submit" button_class="btn btn-info" content="Save Project"%}
     {% url 'portfolio_list' as portfolio_list %}
     {% bootstrap_button button_type="link" button_class="btn btn-danger" content="Cancel" href=portfolio_list %}
 </form>

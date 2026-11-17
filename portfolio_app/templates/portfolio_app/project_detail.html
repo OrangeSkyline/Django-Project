@@ -7,4 +7,14 @@
 
 <p><strong>Description:</strong> {{project.description}}</p>
 
+{% url 'project_update' project.pk as project_update %}
+{% bootstrap_button button_type="link" button_class="btn btn-info" content="Edit Project" href=project_update %}
+{% bootstrap_button button_type="button" button_class="btn btn-danger" content="Delete Project" data_bs_toggle="modal" data_bs_target="#project_delete_modal" %}
+    <div class="modal" id="project_delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #353535; color: white;">
+            {% include "portfolio_app/project_form_delete.html" %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

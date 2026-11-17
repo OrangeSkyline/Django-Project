@@ -17,6 +17,8 @@
     {% endfor %}
 </p>
 
+{% url 'project_create' as project_create %}
+{% bootstrap_button button_type="link" button_class="btn btn-success" content="Add a Project" href=project_create %}
 {% url 'portfolio_update' portfolio.pk as portfolio_update %}
 {% bootstrap_button button_type="link" button_class="btn btn-info" content="Edit Portfolio" href=portfolio_update %}
 {% url 'portfolio_delete' portfolio.pk as portfolio_delete %}

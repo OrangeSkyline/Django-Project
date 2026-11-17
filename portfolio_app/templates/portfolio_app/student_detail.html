@@ -8,6 +8,8 @@
 <p class="mt-3"><strong>Email:</strong> {{student.email}}</p>
 <p><strong>Major:</strong> {{student.get_major_display}}</p>
 
+{% url 'portfolio_create' as portfolio_create %}
+{% bootstrap_button button_type="link" button_class="btn btn-success" content="Create a Portfolio" href=portfolio_create %}
 {% url 'student_update' student.pk as student_update %}
 {% bootstrap_button button_type="link" button_class="btn btn-info" content="Edit Student" href=student_update %}
 {% url 'student_delete' student.pk as student_delete %}

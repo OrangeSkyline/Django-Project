@@ -8,4 +8,4 @@
 
 ## Turning Off Server & Exiting Virtual Environment:
 
-<p style="font-size: 16px;">For this, all you have to do is go back to Windows Powershell, hit Control + C while in the console, and it should bring back the root directory with the green (djvenv) indicator at the far left.</p>
+<p style="font-size: 16px;">For this, all you have to do is go back to Windows Powershell, hit Control + C while in the console, and it should bring back the root directory with the green (djvenv) indicator at the far left. Then, type "deactivate" and hit enter. That is all.</p>

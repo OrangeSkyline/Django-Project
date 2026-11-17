@@ -7,7 +7,7 @@
         <form method="post" action="{% url 'project_delete' project.pk %}">  
             <div class="modal-body">
                 {% csrf_token %}
-                <p>Are you sure you want to delete {{project.title}}? This action cannot be undone.</p>
+                <p>Are you sure you want to delete <strong>{{project.title}}?</strong> This action cannot be undone.</p>
             </div>
             <div class="modal-footer">
                 {% bootstrap_button button_type="submit" button_class="btn btn-danger" content="Delete It!" %}

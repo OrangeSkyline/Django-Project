@@ -3,9 +3,9 @@
 
 {% block content %}
 
-<h2 class="fw-normal mt-3">Edit Student</h2>
+<h2 class="mt-2">Edit Student</h2>
 
-<form method="post">
+<form method="post" class="pt-2">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% bootstrap_button button_type="link" content="Save Student" button_class="btn btn-info" href=portfolio_update %}

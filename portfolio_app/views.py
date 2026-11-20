@@ -99,7 +99,6 @@ class ProjectUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('portfolio_detail', kwargs={'pk': self.object.portfolio_id})
     
-
 # CBV for Deleting a Student
 class StudentDeleteView(DeleteView):
     model = Student
